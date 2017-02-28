@@ -1,0 +1,103 @@
+body, html {
+    margin: 0px;
+    font: 1em 'Raleway', sans-serif;
+    background-color: #999;
+}
+
+.content {
+    padding: 30px;
+    color: #666;
+}
+
+.nav-main {
+    width: 100%;
+    background-color: #f5ce34; /* Darkish nice yellow */
+    height: 70px;
+    color: #fff;
+}
+
+.nav-main .logo {
+    float: left;
+    height: 40px;
+    padding: 15px 30px;
+    font-size: 1.4em;
+    line-height: 40px;
+    background-color: #444;
+}
+
+.nav-main > ul {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    list-style-type: none;
+}
+
+.nav-main > ul > li {
+    float: left;
+}
+
+.nav-item {
+    display: inline-block;
+    padding: 15px 20px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    background-color: #444;
+}
+
+.nav-content {
+    position: absolute;
+    top: 70px;
+    overflow: hidden;
+    background-color: #f5ce34;
+    max-height: 0px; /*This will hide the dropdown menu*/
+}
+
+.nav-content a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-content a:hover {
+    text-decoration: underline;
+}
+
+.nav-sub {
+    padding: 20px;
+}
+
+.nav-sub ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.nav-sub ul li a {
+    display: inline-block;
+    padding: 5px 0px; /*Just gives a little space top and bottom for the sub menu*/
+}
+
+.nav-item:focus {
+    background-color: #f5ce34; /*With the focus psuedo element now implemented,
+    when I click on a nav-main menu, it will stay clicked on until I click anywhere 
+    off that menu nav-main item.*/
+}
+
+.nav-item:focus ~ .nav-content {
+    max-height: 400px; /*This is basically saying when nav-item is focused, target 
+    the nav-content when selected.
+    By using the tild which means anything inline with nav-item
+    on the html page which is the nav-content div, by using the tild, the 
+    nav-content will be affected and the max-height will drop down the sub menu when
+    clicked on. That is the way of getting around focusing on a menu and clicking 
+    to stay active without using JavaScript. Once I click off anywhere below the main 
+    nav menu, the sub menu becomes out of focus and dissapears.*/
+    -webkit-transition: max-height 0.4s ease-in;
+    -moz-transition: max-height 0.4s ease-in;
+    transition: max-height 0.4s ease-in; /*These add a smooth transition when I click
+    on the menu to dropdown with a 0.4 second transition.*/
+}
